@@ -1,0 +1,14 @@
+{
+  "name": "data-vis",
+  "version": "1.0.0",
+  "description": "Application for Vis Seminar 2019",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Saman Soltani (samansoltani.com)",
+  "dependencies": {
+    "canvas": "^2.3.1"
+  }
+}
