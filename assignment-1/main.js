@@ -7,13 +7,13 @@ var sourceFile = __dirname + '/field2.irreg';
 // configs
 var scale = 5000;
 var dataSize = 5000;
-var boardSize = 6000;
-var boardSizeHeight = 7000;
+var boardSize = dataSize + 1000;
+var boardSizeHeight = boardSize + 1000;
 var margin = 500;
 var axisX = margin;
 var axisY = margin + dataSize + 400;
 var axisH = 100;
-var axisW = 5000;
+var axisW = dataSize;
 
 var min = 0;
 var max = 0;
@@ -138,7 +138,7 @@ fs.readFile(sourceFile, 'utf8', (err, data) => {
   var axisGradient = boardCtx.createLinearGradient(0, 0, axisW, 0);
   for (k = 0; k < scale; k += scale / 10) {
     var color = fcolors(k).rgb();
-    axisGradient.addColorStop(k / 5000, `rgb(${color[0]}, ${color[1]}, ${color[2]}`);
+    axisGradient.addColorStop(k / scale, `rgb(${color[0]}, ${color[1]}, ${color[2]}`);
   }
 
   boardCtx.fillStyle = axisGradient;
