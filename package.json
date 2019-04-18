@@ -5,10 +5,12 @@
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
+    "as1": "node ./assignment-1/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Saman Soltani (samansoltani.com)",
   "dependencies": {
-    "canvas": "^2.3.1"
+    "canvas": "^2.3.1",
+    "chroma-js": "^2.0.3"
   }
 }
