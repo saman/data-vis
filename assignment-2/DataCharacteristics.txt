@@ -1,0 +1,5 @@
+slice150.raw
+
+
+
+This data set corresponds to the 150th slice of the aforementioned data set. Thus, it has the same data characteristics, but the dimension is 512 x 512 x 1. 
