@@ -1,0 +1,7 @@
+orion.zip
+This archive contains four .txt files (i170b1h0_t0.txt, i170b2h0_t0.txt, i170b3h0_t0.txt, i170b4h0_t0.txt), each containing informations of the same region in space but with different settings in wavelength (12, 25, 60 and 100 µm). The stored values signify emission measurements from the emitting material in space (e.g. stars). They are stored as ASCII values, each value as a double value with exponent. Each value is set in quotation marks (") and values are separated with commas (,) (e.g. "1.1848001634E+000","1.2553906147E+000"). Each file contains values for a 500x500 image (therefore 500x500 values). The values are stored by row from the right border of the image to the left. Therefore, the first value in a file is the value with coordinates (500, 1), the second with coordinates (500, 2), to (500, 500) and then (499, 1) and so on.
+Make sure that you read in the values in their correct order: for a visual proof of correctness see AllBands.png in folder "Resources" on koala. 
+The files are taken from http://irsa.ipac.caltech.edu/data/ISSA/ with
+Target Selection: Single Object "orion"
+Size: 12.5
+The data set is the one with distance 334.3440, RA 80.5922470 and Dec -9.9530725
