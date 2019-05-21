@@ -18,11 +18,10 @@ def nonlinear(value, min_value, max_value):
             return (log - log_min) / (log_max - log_min) * scale
     return 0
 
-
 def saveplot(data, title, file_name, type):
     plt.clf()
     txt = "Saman Soltani\nPaderborn University\nInteractive Data Visualization"
-    plt.subplots_adjust(bottom=0.2)
+    plt.subplots_adjust(bottom=0.2, left=0.2)
     plt.figtext(0.99, 0.01, txt, wrap=True,
                 ha="right", va="bottom", fontsize=8)
     plt.title(title)
@@ -33,7 +32,11 @@ def saveplot(data, title, file_name, type):
         plt.imshow(data)
         plt.gca().invert_yaxis()
     elif type == 'hist':
+        plt.xlabel('Value')
+        plt.ylabel('Frequency')        
         plt.hist(data, histtype="step")
+    elif type == 'bar':
+        plt.bar(data.keys(), data.values())        
     elif type == 'plot':
         plt.plot(data)
 
@@ -62,9 +65,6 @@ def task(file_name):
     lines = content.split('\n')
     data = []
     data_list = []
-    total = 0
-    total_sqr = 0
-    count = 0
     line_x = 0
     # read data with comma delimiter
     for i in range(len(lines)):
@@ -73,31 +73,18 @@ def task(file_name):
             for value in data[len(data) - 1]:
                 data_list.append(value)
 
-                # calculate total
-                total += value
-                total_sqr += value * value
 
-                # calculate min and max value 
-                if count == 0:
-                    min_value = value
-                    max_value = value
+    # calculate min
+    min_value = min(data_list)
 
-                if value < min_value:
-                    min_value = value
-
-                if value > max_value:
-                    max_value = value
-
-                count += 1
+    # calculate max
+    max_value = max(data_list)
 
     # calculate mean
-    mean = total / count
+    mean = np.mean(data_list)
 
     # calculate variance
-    variance = total * total
-    variance /= count
-    variance = total_sqr - variance
-    variance /= count - 1
+    variance = np.var(data_list)
 
     # nonlinear filter
     nonlinear_data = np.zeros((size, size))
@@ -117,8 +104,6 @@ def task(file_name):
     for i in indices:
         if r[i] in r:
             p[i] += 1
-        else:
-            p[i] = 1
 
     pr = np.zeros(len(r))
     cdf = np.zeros(len(r))
@@ -139,22 +124,22 @@ def task(file_name):
 
     # save all plots
     saveplot(cdf255_matrix, "Histogram Equalization: " + file_name, file_name + "-he", "im")
-    saveplot(profile_line, "Max Profile Line: " + file_name, file_name + "-pl", "plot")
-    saveplot(nonlinear_data, "Non-Linear: " + file_name, file_name + "-nl", "imc")
-    saveplot(data_list, "Histogram: " + file_name, file_name + "-h", "hist")
+    
+    if (file_name == "i170b2h0_t0"):
+        saveplot(profile_line, "Max Profile Line: " + file_name, file_name + "-pl", "plot")
+        saveplot(nonlinear_data, "Non-Linear: " + file_name, file_name + "-nl", "imc")
+        saveplot(data_list, "Histogram: " + file_name, file_name + "-h", "hist")
 
-    # save text files
-    text = ""
-    text += "file: " + file_name + "\n"
-    text += "min: " + str(min_value) + "\n"
-    text += "max: " + str(max_value) + "\n"
-    text += "count: " + str(count) + "\n"
-    text += "total: " + str(total) + "\n"
-    text += "mean: " + str(mean) + "\n"
-    text += "variance: " + str(variance) + "\n"
+        # save text files
+        text = ""
+        text += "file: " + file_name + "\n"
+        text += "min: " + str(min_value) + "\n"
+        text += "max: " + str(max_value) + "\n"
+        text += "mean: " + str(mean) + "\n"
+        text += "variance: " + str(variance) + "\n"
 
-    with open("./outputs/" + file_name + ".txt", "w+") as out:
-        out.write(text)
+        with open("./outputs/" + file_name + ".txt", "w+") as out:
+            out.write(text)
 
     return cdf255_matrix
 
