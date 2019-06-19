@@ -1,0 +1,8 @@
+volume.raw
+
+This data set is a CT-angiographic scan of a human heart. Data is given as a binary array of the dimension 512 x 512 x 421 (xyz). The extent of one voxel is 0.423828 x 0.423828 x 0.5 millimeters (xyz). The data value of one entry is a 12-Bit Integer saved in 16-Bit (short). 
+
+
+slice150.raw
+
+This data set corresponds to the 150th slice of the aforementioned data set. Thus, it has the same data characteristics, but the dimension is 512 x 512 x 1. 
