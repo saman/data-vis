@@ -20,3 +20,15 @@ The output should show up in same folder as `image.png`
 
 ## Assignments
 You can find other assignments in related folder.
+
+## Points
+I got these marks for assignments. Each assignment has 10 points. In total I got 46 out of 60 points. 
+
+| Title        | Points | Feedback                                                     |
+| ------------ | ------ | ------------------------------------------------------------ |
+| Assignment 1 | 10     |                                                              |
+| Assignment 2 | 10     |                                                              |
+| Assignment 3 | 6      | - profile line not effective, e.g. log-scaled - histogram not effective, e.g. log-scaled- d) - no scale for colors |
+| Assignment 4 | 8      | scatter plot matrix 3/5: - correctness /effectiveness : -1 - professor or legend for colors missing - effectiveness: -1 - scales for the diagrams on the diagonal not correct  parallel coordinates 5/5 |
+| Assignment 5 | 10     |                                                              |
+| Assignment 6 | 2      |                                                              |
